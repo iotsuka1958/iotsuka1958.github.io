@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <title>busybox 導入</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="../../style.css">
+<link rel="stylesheet" href="../style.css">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" />
 <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"></script>
 </head>
@@ -28,28 +28,25 @@ windows でも linux like に操作をしたい。
 をもってきて、適当なディレクトリに配置します
 
       <div class="note">
-        <p>ちなみに d:\userdata\i.ootsk2\bin\busybox\ というディレクトリをつくって、そこにいれました。</p>
+        <p>ちなみに ~/bin/busybox/ というディレクトリをつくって、そこにいれました。</p>
 <pre>
-mkdir d:\userdata\i.ootsk2\bin\
-cd d:\userdata\i.ootsk2\bin\
-mkdir busybox\
+$ cd ~
+$ mkdir bin
+$ mkdir bin/busybox
 
 
 </pre>
 
-
-
-
       </div>
-<li>    上記ディレクトリにいってから、インストールします
+<li>    上記ディレクトリに移ってから、インストールします
 
 <pre>
-cd d:\userdata\i.ootsk2\bin\busybox\
-busybox --install
+$ cd ~/bin/busybox
+$ busybox --install
 </pre>
 
 <li> 上記ディレクトリに PATH を通します。
-具体的には cmd を起動したときに起点となるディレクトリに適当なバッチファイルを置きます。
+具体的には <code>cmd</code> を起動したときに起点となるディレクトリに適当なバッチファイルを置きます。
 そのバッチファイルの中で、pathを通します。
 <pre>
 hoge.bat の中身
@@ -178,10 +175,3 @@ alias myip="curl http://ipecho.net/plain; echo"
 </ul>
 
 
-<hr>
-
-Under Construction
-
-
-</body>
-</html>

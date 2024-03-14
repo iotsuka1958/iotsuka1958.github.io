@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>Git/Github 環境構築</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"></script>
+</head>
+<body>
+<nav id="breadcrumbs">
+<a href="../">トップ</a> &gt;
+<a href="./">いろいろ</a> &gt;
+</nav>
+
+<h1>Git/Github 環境 を導入する</h1>
+
+<h2>ローカルに Git をインストール</h2>
+<p>
+Linux なら <code>sudo apt install git-all</code> ではいる。
+</p>
+
+<p>
+windows なら
+<a href=https://git-scm.com/download/win>Git の公式サイト</a>から、
+インストーラーを落としてくる。管理者権限がないときは、ポータブル版の Git を使えばいい。
+
+</p>
+
+<p>
+インストール先を聞かれる。どこでもいいが、たとえば <code>~/bin/Git/</code>（ポータブル版なら<code>~/bin/PortableGit</code>）あたりを指定する。
+</p>
+
+<p>
+git.exe は、<code>~/bin/Git/cmd/</code>（ポータブル版なら <code>~/bin/PortableGit/cmd/</code>）にある。そこに PATH を通しておきます。
+</p>
+
+<p>さらに自分の PC での設定：</p>
+
+<pre>
+$ git config --global user.name iotsuka1958 # GitHub のユーザ名
+$ git config --global user.email smiley.at.circus@gmail.com # 同メアド
+$ git config --global pull.rebase false
+$ git config --global core.editor xyzzycli # 自分の好きなエディタを指定（ゆくゆくは emacsclient）
+$ git config --global init.defaultBranch main # Git 2.28以降
+$ git config --global grep.lineNumber true # git grep 実行時に行番号を表示
+</pre>
+
+<p>上記の設定は <code>~/.gitconfug</code> に書き込まれる。ねんのために、ちゃんと設定されたか確認します。</p>
+
+
+<pre>
+$ cat ~/.gitconfig
+</pre>
+
+<div class="note">
+
+
+<p>プロキシサーバーが設定されていると、うまくつながらないので、ひとてま必要。ターミナルで Git にプロキシを設定します：</p>
+
+<pre>
+$ git config --global http.proxy (プロキシサーバーのアドレス：ポート番号)
+</pre>
+
+<p>
+プロキシサーバーの情報は、windows なら
+ターミナルで次のコマンドをうつとわかります。
+</p>
+
+<pre>
+$ netsh winhttp show proxy
+</pre>
+
+</div>
+
+
+<h2>Github 上にリモートのリポジトリを作成・ひもづけ</h2>
+
+<p>
+GitHub でリポジトリをつくります（からっぽでもいいそうです）。それをクローンします：
+</p>
+
+<pre>
+git clone https://github.com/<i>username</i>/<i>repositoryname</i>.git
+</pre>
+
+<hr>
+
+Under Construction
+
+</body>
+</html>
+
+

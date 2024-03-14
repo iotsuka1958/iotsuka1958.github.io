@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>python 導入</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"></script>
+</head>
+<body>
+<nav id="breadcrumbs">
+<a href="../">トップ</a> &gt;
+<a href="./">いろいろ</a> &gt;
+</nav>
+
+<h1>Python を導入する</h1>
+
+<p>
+管理者権限のない windows マシンに Python を導入できないか、とおもってさがしたら、
+Embedded Python というものがあることを知った。
+</p>
+
+<p>
+<a href="https://qiita.com/Ma2021/items/889631f85b3f976ecad9">ここ</a>や<a href="https://qiita.com/Koki_Takada/items/e8e01743576afe97d4ef">ここ</a>を参考にすれば、
+できそうだ。
+</p>
+
+
+
+
+<p>Python のインストーラを <a href="https://www.python.org/downloads/windows/">Python の公式ページ</a> からダウンロードします。Windowsembeddablepackage(64bit)というやつですね。</p>
+
+
+<p>おとしてきた zip ファイルを解凍してできあがったディレクトリ（以下では、便宜上 embed ディレクトリ といいます）を適当なところ、たとえば <code>~/bin/</code>にほうりこむ。
+
+
+<p>つぎに、embed ディレクトリにある python311._pth というファイルの #import site という行の # を削除します。</p>
+
+<p>それから、embedディレクトリ自体とその中にある Scripts というディレクトリに PATH を通します。</p>
+
+<p>もう少しやることがあります。<embed ディレクトリに移動して、次のコマンドを打ちます。/p>
+
+<pre>
+$ curl -sSL https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+</pre>
+
+<p>これで embed ディレクトリに get-pip.py がおちてきます。続いて、やはり embed ディレクトリで次のコマンドを打ちます。</p>
+
+<pre>
+./python.exe get-pip.py
+</pre>
+
+<p>
+これで Scripts ディレクトリに pip.exe ができあがります。
+</p>
+
+<p>pip をアップグレードします。</p>
+<pre>
+$ pip install --upgrade pip setuptools
+</pre>
+
+<p>いろいろなパッケージは、つぎのようにして、おいおいインストールすればいいでしょう。</p>
+
+<pre>
+$ pip install pandas
+</pre>
+
+
+<p>これで pandas というライブラリがインストールされます。</p>
+<hr>
+
+Under Construction
+
+</body>
+</html>
